@@ -2,7 +2,6 @@ const axios = require('axios').default;
 const lodash = require('lodash');
 
 class HttpService {
-
   constructor(baseUrl, contentType, accept, authType, accessToken) {
     this._baseUrl = baseUrl;
     this._contentType = contentType;
@@ -26,6 +25,8 @@ class HttpService {
         {method: 'GET'},
         params ? { params } : {}
       )))
+    }).catch((error) => {
+      console.log(error)
     })
   }
 
@@ -35,6 +36,8 @@ class HttpService {
         {method: 'POST'},
         data ? { data } : {}
       )))
+    }).catch((error) => {
+      console.log(error)
     })
   }
 
@@ -43,7 +46,9 @@ class HttpService {
       resolve(this.request(path, lodash.assign(
         {method: 'PUT'},
         data ? { data } : {}
-      )))
+      ))).catch((error) => {
+        console.log(error)
+      })
     })
   }
 
@@ -52,7 +57,9 @@ class HttpService {
       resolve(this.request(path, lodash.assign(
         {method: 'DELETE'},
         params ? { params } : {}
-      )))
+      ))).catch((error) => {
+        console.log(error)
+      })
     })
   }
 
@@ -70,4 +77,4 @@ class HttpService {
   }
 }
 
-export default HttpService;
+module.exports = HttpService;

@@ -2,16 +2,14 @@ const HttpService = require('./HttpService');
 const config = require('../config');
 
 class VelibService {
-    static velibService = new HttpService(velibBaseUrl, 'application/json', '', '', '');
-
-  async getAllStations() {
-    let params = {dataset: 'velib-disponibilite-en-temps-reel', rows: 1, start: 1};
-    let response = await velibService.get(config.velibBaseUrl, params);
-    params.rows = response.data.nhits;
-    response = await velibService.get(config.velibBaseUrl, params);
-    console.log(response)
+  constructor() {
+    this._velibService = new HttpService(config.velibBaseUrl, 'application/json', '', '', '');
   }
 
+  async getAllStations() {
+    let response = await this._velibService.get(config.velibBaseUrl, {});
+    return response.status === 200 ? response : {error: 'Unable to reach service', status: response.status};
+  }
 }
 
-export default VelibService
+module.exports = VelibService;

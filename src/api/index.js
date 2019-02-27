@@ -13,7 +13,7 @@ router.use(bodyParser.urlencoded({ extended: false }));
 router.use('/api-doc', apiDoc);
 router.use('/api/v1', routes);
 router.use('/', function(req, res) {
-  res.send('<html><body><h1>Welcome to Velib restored service API</h1></body></html>');
+  res.send('<html><body><h1>Welcome to VelibService restored velibService API</h1></body></html>');
 });
 
 module.exports = router;
