@@ -1,0 +1,25 @@
+{
+  "name": "aws-app-dev-assignment-bikes",
+  "version": "1.0.0",
+  "description": "This is an express server running a REST API used to provide tracking information for the bike-sharing service Velib",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./server.js"
+  },
+  "keywords": [
+    "REST",
+    "API"
+  ],
+  "author": "Marco Salazar",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "1.18.3",
+    "express": "4.16.2",
+    "helmet": "3.11.0",
+    "jsonwebtoken": "8.1.1",
+    "lodash": "^4.17.11",
+    "swagger-ui-express": "^4.0.1"
+  }
+}
