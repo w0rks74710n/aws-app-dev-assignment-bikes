@@ -2,8 +2,8 @@
   "swagger": "2.0",
   "info": {
     "version": "1.0.0",
-    "title": "EDOrSE API Gateway",
-    "description": "EDOrSE API Gateway documentation",
+    "title": "Service coverage API for bike-sharing provider Velib",
+    "description": "This is an express server running a REST API used to provide tracking information for the bike-sharing service Velib",
     "license": {
       "name": "MIT",
       "url": "https://opensource.org/licenses/MIT"
@@ -11,21 +11,9 @@
   },
   "host": "localhost:3001",
   "basePath": "/api/v1",
-  "tags": [
-    {
-      "name": "Services",
-      "description": "API for service integration"
-    }
-  ],
-  "schemes": [
-    "http"
-  ],
-  "consumes": [
-    "application/json"
-  ],
-  "produces": [
-    "application/json"
-  ],
+  "schemes": ["http"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
   "paths": {
     "/": {
       "get": {
@@ -33,6 +21,48 @@
           "Home"
         ],
         "summary": "Get welcome message to the API",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/velib-stations": {
+      "get": {
+        "tags": [
+          "Velib Stations"
+        ],
+        "summary": "Get the number of operational stations and available bikes",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/velib-stations/nearby": {
+      "get": {
+        "tags": [
+          "Velib Stations"
+        ],
+        "summary": "Get the nearest bike station to the user that is in operation and has bikes available.",
+        "parameters": [
+          {
+            "name": "lat",
+            "in": "query",
+            "description": "latitude to filter by",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "name": "lon",
+            "in": "query",
+            "description": "longitude to filter by",
+            "required": true,
+            "type": "number"
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"

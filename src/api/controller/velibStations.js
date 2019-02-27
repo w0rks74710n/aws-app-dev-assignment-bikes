@@ -19,7 +19,6 @@ let getOperationalStations = async (req, res) => {
 };
 
 let getNearestOperativeBikeStation = async (req, res) => {
-  console.log(req.query);
   if (!Object.prototype.hasOwnProperty.call(req.query, 'lat')) return res.status(400).json({
     error: 'Bad Request',
     message: 'The request parameters must contain a the parameter lat'
