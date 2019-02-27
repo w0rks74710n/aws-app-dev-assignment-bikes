@@ -16,6 +16,7 @@ let getOperationalStations = async (req, res) => {
     });
     return res.status(200).json({operational_stations: operationalStations, total_available_bikes: availableBikesForRent});
   }
+  return res.status(allStations.status).json({error: allStations.error});
 };
 
 let getNearestOperativeBikeStation = async (req, res) => {
@@ -47,6 +48,7 @@ let getNearestOperativeBikeStation = async (req, res) => {
     });
     return res.status(200).json({closest_station: closestStation, distance_to_station: { distance: closestDistance, units: 'meters'}});
   }
+  return res.status(allStations.status).json({error: allStations.error});
 };
 
 module.exports = {
