@@ -12,5 +12,4 @@ app.use(helmet());
 app.use(api);
 app.listen(config.port, async function() {
   console.log('Listening on port ' + config.port);
-
 });
