@@ -30,39 +30,6 @@ class HttpService {
     })
   }
 
-  post(path, data) {
-    return new Promise((resolve) => {
-      resolve(this.request(path, lodash.assign(
-        {method: 'POST'},
-        data ? { data } : {}
-      )))
-    }).catch((error) => {
-      console.log(error)
-    })
-  }
-
-  put(path, data) {
-    return new Promise((resolve) => {
-      resolve(this.request(path, lodash.assign(
-        {method: 'PUT'},
-        data ? { data } : {}
-      ))).catch((error) => {
-        console.log(error)
-      })
-    })
-  }
-
-  delete(path, params) {
-    return new Promise((resolve) => {
-      resolve(this.request(path, lodash.assign(
-        {method: 'DELETE'},
-        params ? { params } : {}
-      ))).catch((error) => {
-        console.log(error)
-      })
-    })
-  }
-
   _buildHeaders() {
     const accessToken = this._accessToken;
     const authType = this._authType;
