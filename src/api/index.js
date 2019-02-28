@@ -13,7 +13,7 @@ router.use(bodyParser.urlencoded({ extended: false }));
 router.use('/api-doc', apiDoc);
 router.use('/api/v1', routes);
 router.use('/', function(req, res) {
-  res.send('<html><body><h1>Welcome to VelibService restored velibService API</h1></body></html>');
+  res.send('<html><body><h1>Welcome to the restored Velib Service API</h1><h4>Please visit the <a href="http://ec2-52-59-211-201.eu-central-1.compute.amazonaws.com/api-doc/">documentation</a> for further information</h4></body></html>');
 });
 
 module.exports = router;
