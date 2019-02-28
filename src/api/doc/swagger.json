@@ -9,7 +9,7 @@
       "url": "https://opensource.org/licenses/MIT"
     }
   },
-  "host": "http://ec2-52-59-211-201.eu-central-1.compute.amazonaws.com",
+  "host": "ec2-52-59-211-201.eu-central-1.compute.amazonaws.com",
   "basePath": "/api/v1",
   "schemes": ["http"],
   "consumes": ["application/json"],
